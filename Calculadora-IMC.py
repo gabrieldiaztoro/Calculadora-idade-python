@@ -7,12 +7,16 @@ janela.title ("Calculadora IMC - CSV19")
 janela.geometry ('310x400')
 
 # cores
-cor1 = "#3b3b3b"
-
+cor1 = "#333333"
+cor2 = "#3b3b3b"
 #-------criando frames----
 frame_topo = Frame(janela, width=310, height=150, pady=0, padx=0, relief=FLAT, bg=cor1) 
 #- parte de cima da calculadora relief = estilo   'flat' ou FLAT, bg = background
 frame_topo.grid(row=0, column=0)
+
+frame_baixo = Frame(janela, width=310, height=300, pady=0, padx=0, relief=FLAT, bg=cor2) 
+#- parte de cima da calculadora relief = estilo   'flat' ou FLAT, bg = background
+frame_baixo.grid(row=1, column=0)
 
 
 
