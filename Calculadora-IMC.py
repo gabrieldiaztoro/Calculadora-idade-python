@@ -41,12 +41,26 @@ def calcular():
     hoje=cal_hoje.get()
     nascimento= cal_nascimento.get()
 
-    anos =relativedelta(hoje, nascimento).years
     
 #separando os valores
 
-    mes, dia, ano =[int(f) for f in hoje.split('/')]
-    data_hoje = date(ano, mes, dia) 
+    mes_1, dia_1, ano_1 =[int(f) for f in hoje.split('/')]
+
+#convertendo os valores em datetime    
+    data_hoje = date(ano_1, mes_1, dia_1) 
+
+#separando os valores
+
+    mes_2, dia_2, ano_2 =[int(f) for f in nascimento.split('/')]
+
+#convertendo os valores em datetime  
+   
+    data_nascimento = date(ano_2, mes_2, dia_2) 
+
+    anos =relativedelta(data_hoje, data_nascimento).years
+
+    print (anos)
+
 
 
 #----criando label para frame (Down)
@@ -59,7 +73,7 @@ l_data_nascimento.place(x=20, y=70)
 
 #calendario
 
-cal_hoje = DateEntry(frame_down, width=13, bg='darkblue', fg=cor3, borderwidth=2, date_pattern= 'dd/mm/y', y=2022)
+cal_hoje = DateEntry(frame_down, width=13, bg='darkblue', fg=cor3, borderwidth=2, date_pattern= 'mm/dd/y', y=2022)
 cal_hoje.place(x=180, y=30)
 
 cal_nascimento = DateEntry(frame_down, width=13, bg='darkblue', fg=cor3, borderwidth=2, date_pattern= 'dd/mm/y', y=2022)
