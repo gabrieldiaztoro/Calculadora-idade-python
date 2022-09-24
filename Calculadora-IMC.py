@@ -42,10 +42,11 @@ def calcular():
     nascimento= cal_nascimento.get()
 
     anos =relativedelta(hoje, nascimento).years
-
+    
 #separando os valores
-mes, dia, ano =[int(f) for f in hoje.split('/')]
-data_hoje = date(ano, mes, dia) 
+
+    mes, dia, ano =[int(f) for f in hoje.split('/')]
+    data_hoje = date(ano, mes, dia) 
 
 
 #----criando label para frame (Down)
