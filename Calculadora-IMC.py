@@ -50,8 +50,28 @@ cal_nascimento = DateEntry(frame_down, width=13, bg='darkblue', fg=cor3, borderw
 cal_nascimento.place(x=180, y=70)
 
 #resultado
-l_resultado_anos = Label(frame_down, text="27", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 11 bold'), bg=cor2 , fg=cor3)
-l_resultado_anos.place(x=20, y=70)
+l_resultado_anos = Label(frame_down, text="27", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor2 , fg=cor3)
+l_resultado_anos.place(x=60, y=130)
+
+l_resultado_anos2 = Label(frame_down, text="anos", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 13 bold'), bg=cor2 , fg=cor3)
+l_resultado_anos2.place(x=60, y=170)
+
+
+l_resultado_meses = Label(frame_down, text="8", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor2 , fg=cor3)
+l_resultado_meses.place(x=150, y=130)
+
+l_resultado_meses2 = Label(frame_down, text="meses", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 13 bold'), bg=cor2 , fg=cor3)
+l_resultado_meses2.place(x=150, y=170)
+
+
+
+l_resultado_dias = Label(frame_down, text="90", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor2 , fg=cor3)
+l_resultado_dias.place(x=250, y=130)
+
+l_resultado_dias2 = Label(frame_down, text="dias", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 13 bold'), bg=cor2 , fg=cor3)
+l_resultado_dias2.place(x=250, y=170)
+
+
 
 
 janela.mainloop()
