@@ -1,15 +1,14 @@
-#from cProfile import label
 from tkinter import*
 from tkinter import ttk
-#from turtle import width
-
-
-
-#from dateutil.relativedelta import relativedelta
-#from datetime import date
 
 # importando tkcalendar
 from tkcalendar import Calendar, DateEntry
+
+#importando dateutil
+from dateutil.relativedelta import relativedelta
+
+#importando datetime
+from datetime import date
 
 janela =Tk()
 janela.title ("Calculadora de Idade")
@@ -43,8 +42,29 @@ l_idade.place(x=-0, y=70)
 #calculando idade //// esta parte foi adicionado por ultimo.... 
 
 def calcular():
-    inicio=cal_1.get()
-    termino= cal_2.get()
+    inicial=cal_1.get()
+    terminio= cal_2.get()
+
+    #separando os valores
+    mes_1, dia_1, ano_1 =[int(f) for f in inicial.split('/')]
+
+    #convertendo os valores em datetime    
+    data_inicial = date(ano_1, mes_1, dia_1) 
+
+    #separando os valores
+    mes_2, dia_2, ano_2 =[int(f) for f in terminio.split('/')]
+
+    #convertendo os valores em datetime  
+    data_nascimento = date(ano_2, mes_2, dia_2) 
+
+
+    anos = relativedelta(data_inicial, data_nascimento).years
+    meses = relativedelta(data_inicial, data_nascimento).months
+    dias = relativedelta(data_inicial, data_nascimento).days
+
+    l_app_anos['text']= anos
+    l_app_meses['text']= meses
+    l_app_dias['text']= dias
 
 #----criando label para frame (baixo)
 
@@ -61,18 +81,18 @@ cal_2 = DateEntry(frame_baixo, width=13, bg='darkblue', fg=cor3, borderwidth=2, 
 cal_2.place(x=180, y=70)
 
 #resultado
-l_app_anos = Label(frame_baixo, text="27", height=1, padx=0, pady=0, relief='flat', anchor='center', font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
+l_app_anos = Label(frame_baixo, text="--", height=1, padx=0, pady=0, relief='flat', anchor='center', font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
 l_app_anos.place(x=60, y=135)
 l_app_anos_nome = Label(frame_baixo, text="anos",   height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 11 bold'), bg=cor1 , fg=cor3)
 l_app_anos_nome.place(x=60, y=175)
 
 
-l_app_meses = Label(frame_baixo, text="8", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
+l_app_meses = Label(frame_baixo, text="--", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
 l_app_meses.place(x=140, y=130)
 l_app_meses_nome = Label(frame_baixo, text="meses", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 13 bold'), bg=cor1 , fg=cor3)
 l_app_meses_nome.place(x=140, y=175)
 
-l_app_dias = Label(frame_baixo, text="90", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
+l_app_dias = Label(frame_baixo, text="--", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 25 bold'), bg=cor1 , fg=cor3)
 l_app_dias.place(x=220, y=130)
 l_app_dias_nome = Label(frame_baixo, text="dias", width=25, height=1, padx=0, pady=0, relief='flat', anchor=NW, font=('Ivi 13 bold'), bg=cor1 , fg=cor3)
 l_app_dias_nome.place(x=220, y=175)
@@ -81,32 +101,5 @@ l_app_dias_nome.place(x=220, y=175)
 
 b_calcular = Button(frame_baixo, command=calcular, text="Calcular",width=20, height=1, relief='raised', overrelief='ridge', font=('Ivi 10 bold'), bg=cor1 , fg=cor3)
 b_calcular.place(x=70, y=225)
-
-  
-#separando os valores
-
-    mes_1, dia_1, ano_1 =[int(f) for f in hoje.split('/')]
-
-#convertendo os valores em datetime    
-    data_hoje = date(ano_1, mes_1, dia_1) 
-
-#separando os valores
-
-    mes_2, dia_2, ano_2 =[int(f) for f in nascimento.split('/')]
-
-#convertendo os valores em datetime  
-   
-    data_nascimento = date(ano_2, mes_2, dia_2) 
-
-    anos =relativedelta(data_hoje, data_nascimento).years
-
-    print (anos)
-
-
-
-
-
-
-
 
 janela.mainloop()
