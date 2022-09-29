@@ -10,6 +10,9 @@ from dateutil.relativedelta import relativedelta
 # importando datetime
 from datetime import date
 
+# importando pillow, para adicionar imagens
+from PIL import Image, ImageTk
+
 janela = Tk()
 janela.title("Calculadora de Idade")
 janela.geometry('310x400')
@@ -19,6 +22,11 @@ cor1 = "#3B3B3B"  # --cinza
 cor2 = "#333333"  # --cinza escuro
 cor3 = "#FFFFFF"  # --branca
 cor4 = "#FF8C00"  # --laranja
+
+# IMPORTANDO IMAGEM
+#logo = Image.open('aqruivos/idade.png')
+#logo = logo.resize((50,50), Image.ANTIALIAS)
+#logo = ImageTk.PhotoImage(logo)
 
 # -------criando frames----
 frame_cima = Frame(janela, width=310, height=140,
@@ -35,13 +43,14 @@ frame_baixo.grid(row=1, column=0)
 
 # ----criando label para frame (Top)
 
-l_calculadora = Label(frame_cima, text="CALCULADORA", width=25, height=1, padx=3,
-                      relief='flat', anchor='center', font=('Ivi 15 bold'), bg=cor2, fg=cor3)
+l_calculadora = Label(frame_cima, text="CALCULADORA", width=18, height=1, padx=3,
+                      relief='flat', anchor='center', font=('Ivi 20 bold'), bg=cor2, fg=cor3)
 l_calculadora.place(x=0, y=30)
 
 l_idade = Label(frame_cima, text="DE IDADE", width=11, height=1, padx=0,
                 relief='flat', anchor='center', font=('Arial 35 bold'), bg=cor2, fg=cor4)
 l_idade.place(x=-0, y=70)
+
 
 # calculando idade //// esta parte foi adicionado por ultimo....
 
