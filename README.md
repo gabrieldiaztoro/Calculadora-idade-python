@@ -29,7 +29,7 @@ Calculadora de Idade é um aplicativo onde voce pode calcular com precisão a id
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 11
+Pré-requisitos: Python
 
 ```bash
 # clonar repositório
