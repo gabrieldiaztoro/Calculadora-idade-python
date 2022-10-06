@@ -58,6 +58,7 @@ yarn start
 
 # Autor
 
+
 Gabriel Alberto Diaz Toro
 
 https://www.linkedin.com/in/gabrieldiaztoro/
